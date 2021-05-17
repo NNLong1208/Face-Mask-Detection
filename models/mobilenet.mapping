@@ -1,0 +1,407 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice" out_port_id="0"/>
+		<IR id="8" name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice" out_port_id="4"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_7/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="78" name="1248912492_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_3/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="43" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_3_bn/FusedBatchNormV3/mean/Fused_Mul_80318033_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_4/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="48" name="1250112504_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_1/depthwise" out_port_id="0"/>
+		<IR id="19" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_1/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10_relu/Relu6" out_port_id="0"/>
+		<IR id="117" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_6/depthwise" out_port_id="0"/>
+		<IR id="69" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_6/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="73" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6_bn/FusedBatchNormV3/mean/Fused_Mul_80558057_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9/Conv2D" out_port_id="0"/>
+		<IR id="104" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="53" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4_bn/FusedBatchNormV3/mean/Fused_Mul_80398041_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1_relu/Relu6" out_port_id="0"/>
+		<IR id="17" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_7_relu/Relu6" out_port_id="0"/>
+		<IR id="82" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_7_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_10/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="108" name="1247312476_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="151" name="StatefulPartitionedCall/sequential/dense/MatMul/1_port_transpose10018_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9_relu/Relu6" out_port_id="0"/>
+		<IR id="107" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_13_relu/Relu6" out_port_id="0"/>
+		<IR id="142" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_13_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13/Conv2D" out_port_id="0"/>
+		<IR id="144" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/flatten/Reshape" out_port_id="0"/>
+		<IR id="157" name="StatefulPartitionedCall/sequential/flatten/Reshape" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_13/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="138" name="1248112484_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_11_relu/Relu6" out_port_id="0"/>
+		<IR id="122" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_11_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_1/Conv2D" out_port_id="0"/>
+		<IR id="24" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_1/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8_relu/Relu6" out_port_id="0"/>
+		<IR id="97" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1/Conv2D" out_port_id="0"/>
+		<IR id="14" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_9/depthwise" out_port_id="0"/>
+		<IR id="99" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_9/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_8_relu/Relu6" out_port_id="0"/>
+		<IR id="92" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_8_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense_1/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="162" name="StatefulPartitionedCall/sequential/dense_1/MatMul/1_port_transpose10022_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4_relu/Relu6" out_port_id="0"/>
+		<IR id="57" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/Shape" out_port_id="0"/>
+		<IR id="4" name="StatefulPartitionedCall/sequential/up_sampling2d/Shape/GatherNCHWtoNHWC" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_1/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="23" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_1_bn/FusedBatchNormV3/mean/Fused_Mul_80158017_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8/Conv2D" out_port_id="0"/>
+		<IR id="94" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_10_relu/Relu6" out_port_id="0"/>
+		<IR id="112" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_10_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_5/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="63" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_5_bn/FusedBatchNormV3/mean/Fused_Mul_80478049_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_11/Conv2D" out_port_id="0"/>
+		<IR id="124" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_11/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense_1/BiasAdd" out_port_id="0"/>
+		<IR id="165" name="StatefulPartitionedCall/sequential/dense_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/mul" out_port_id="0"/>
+		<IR id="11" name="StatefulPartitionedCall/sequential/up_sampling2d/resize/ResizeNearestNeighbor/Cast_1" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10/Conv2D" out_port_id="0"/>
+		<IR id="114" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_7/depthwise" out_port_id="0"/>
+		<IR id="79" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_7/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="133" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12_bn/FusedBatchNormV3/mean/Fused_Mul_81038105_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_8/depthwise" out_port_id="0"/>
+		<IR id="89" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_8/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense/BiasAdd" out_port_id="0"/>
+		<IR id="160" name="StatefulPartitionedCall/sequential/dense/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/stack" out_port_id="0"/>
+		<IR id="5" name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/Cast_112666_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/stack_2" out_port_id="0"/>
+		<IR id="7" name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/Cast_312670_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="33" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2_bn/FusedBatchNormV3/mean/Fused_Mul_80238025_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_6/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="68" name="1252112524_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_1/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="18" name="1251712520_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="13" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv1_bn/FusedBatchNormV3/mean/Fused_Mul_80078009_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_11/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="123" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_11_bn/FusedBatchNormV3/mean/Fused_Mul_80958097_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/Const" out_port_id="0"/>
+		<IR id="9" name="StatefulPartitionedCall/sequential/up_sampling2d/Const/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2/Conv2D" out_port_id="0"/>
+		<IR id="34" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/resize/ResizeNearestNeighbor" out_port_id="0"/>
+		<IR id="12" name="StatefulPartitionedCall/sequential/up_sampling2d/resize/ResizeNearestNeighbor" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_2/depthwise" out_port_id="0"/>
+		<IR id="29" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_2/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_3/Conv2D" out_port_id="0"/>
+		<IR id="44" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_3/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_9/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="98" name="1250912512_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_12/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="128" name="1251312516_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_3_relu/Relu6" out_port_id="0"/>
+		<IR id="42" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_3_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_6_relu/Relu6" out_port_id="0"/>
+		<IR id="72" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_6_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="143" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13_bn/FusedBatchNormV3/mean/Fused_Mul_81118113_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Identity" out_port_id="0"/>
+		<IR id="166" name="StatefulPartitionedCall/sequential/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/output/_140" out_port_id="0"/>
+		<IR id="166" name="StatefulPartitionedCall/sequential/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/Identity" out_port_id="0"/>
+		<IR id="166" name="StatefulPartitionedCall/sequential/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense_1/Softmax" out_port_id="0"/>
+		<IR id="166" name="StatefulPartitionedCall/sequential/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense_1/MatMul" out_port_id="0"/>
+		<IR id="163" name="StatefulPartitionedCall/sequential/dense_1/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_3/depthwise" out_port_id="0"/>
+		<IR id="39" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_3/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_5/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="58" name="1250512508_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2_relu/Relu6" out_port_id="0"/>
+		<IR id="37" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_2_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6/Conv2D" out_port_id="0"/>
+		<IR id="74" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12_relu/Relu6" out_port_id="0"/>
+		<IR id="137" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_11/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="118" name="1247712480_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dropout/Identity" out_port_id="0"/>
+		<IR id="161" name="StatefulPartitionedCall/sequential/dense/Sigmoid" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense/Sigmoid" out_port_id="0"/>
+		<IR id="161" name="StatefulPartitionedCall/sequential/dense/Sigmoid" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_11/depthwise" out_port_id="0"/>
+		<IR id="119" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_11/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6_relu/Relu6" out_port_id="0"/>
+		<IR id="77" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_6_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="83" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7_bn/FusedBatchNormV3/mean/Fused_Mul_80638065_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="103" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_9_bn/FusedBatchNormV3/mean/Fused_Mul_80798081_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_4/depthwise" out_port_id="0"/>
+		<IR id="49" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_4/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7/Conv2D" out_port_id="0"/>
+		<IR id="84" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_5/Conv2D" out_port_id="0"/>
+		<IR id="64" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_5/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_9_relu/Relu6" out_port_id="0"/>
+		<IR id="102" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_9_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/flatten/Const" out_port_id="0"/>
+		<IR id="156" name="StatefulPartitionedCall/sequential/dense/MatMul/ReadVariableOp/MinusOne/shapes_concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="113" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_10_bn/FusedBatchNormV3/mean/Fused_Mul_80878089_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="93" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_8_bn/FusedBatchNormV3/mean/Fused_Mul_80718073_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_3/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="38" name="1249312496_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7_relu/Relu6" out_port_id="0"/>
+		<IR id="87" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_7_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_2/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="28" name="1249712500_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/dense/MatMul" out_port_id="0"/>
+		<IR id="158" name="StatefulPartitionedCall/sequential/dense/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_12_relu/Relu6" out_port_id="0"/>
+		<IR id="132" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_12_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_5/depthwise" out_port_id="0"/>
+		<IR id="59" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_5/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/stack_1" out_port_id="0"/>
+		<IR id="6" name="StatefulPartitionedCall/sequential/up_sampling2d/strided_slice/Cast_212668_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_2_relu/Relu6" out_port_id="0"/>
+		<IR id="32" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_2_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12/Conv2D" out_port_id="0"/>
+		<IR id="134" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_12/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4/Conv2D" out_port_id="0"/>
+		<IR id="54" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_4/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_8/depthwise/ReadVariableOp" out_port_id="0"/>
+		<IR id="88" name="1248512488_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_10/depthwise" out_port_id="0"/>
+		<IR id="109" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_10/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_1_relu/Relu6" out_port_id="0"/>
+		<IR id="22" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_1_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_13/depthwise" out_port_id="0"/>
+		<IR id="139" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_13/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13_relu/Relu6" out_port_id="0"/>
+		<IR id="149" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_pw_13_relu/Relu6/Transpose" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_4_relu/Relu6" out_port_id="0"/>
+		<IR id="52" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_4_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_12/depthwise" out_port_id="0"/>
+		<IR id="129" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_12/depthwise" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_5_relu/Relu6" out_port_id="0"/>
+		<IR id="62" name="StatefulPartitionedCall/sequential/mobilenet_1.00_224/conv_dw_5_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/input/_0" out_port_id="0"/>
+		<IR id="0" name="up_sampling2d_input" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="up_sampling2d_input" out_port_id="0"/>
+		<IR id="0" name="up_sampling2d_input" out_port_id="0"/>
+	</map>
+</mapping>
