@@ -2,7 +2,7 @@ from openvino.inference_engine import IECore
 from modules.pre_process import pro_process_openvino
 import numpy as np
 
-def prepare(path, device = 'GPU'):
+def mask_prepare(path, device = 'GPU'):
     model_xml = r'{}\model.xml'.format(path)
     model_bin = r'{}\model.bin'.format(path)
     ie = IECore()
@@ -14,6 +14,7 @@ def prepare(path, device = 'GPU'):
     return exec_net, input_layer, output_layer
 
 def mask_process(img, exec_net, input_layer, output_layer):
+    print(img.shape)
     x = pro_process_openvino(img)
     res = exec_net.infer(inputs={input_layer: x})
     res = res[output_layer][0].tolist()

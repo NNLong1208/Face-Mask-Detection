@@ -7,7 +7,7 @@ from utils.load_state import load_state
 from utils.pose import Pose, track_poses
 from utils.val import normalize, pad_width
 
-def prepare(path):
+def pose_prepare(path):
     net = PoseEstimationWithMobileNet()
     checkpoint = torch.load(path, map_location='cpu')
     load_state(net, checkpoint)
