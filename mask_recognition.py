@@ -19,6 +19,6 @@ def mask_process(img, exec_net, input_layer, output_layer):
         x = pro_process_openvino(x)
         res = exec_net.infer(inputs={input_layer: x})
         res = res[output_layer][0].tolist()
-        res_list.append(res = np.argmax(res))
+        res_list.append(np.argmax(res))
     return res_list
 
