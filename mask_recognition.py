@@ -14,9 +14,11 @@ def prepare(path, device = 'GPU'):
     return exec_net, input_layer, output_layer
 
 def mask_process(img, exec_net, input_layer, output_layer):
-    x = pro_process_openvino(img)
-    res = exec_net.infer(inputs={input_layer: x})
-    res = res[output_layer][0].tolist()
-    res = np.argmax(res)
-    return res
+    res_list = []
+    for x in img:
+        x = pro_process_openvino(x)
+        res = exec_net.infer(inputs={input_layer: x})
+        res = res[output_layer][0].tolist()
+        res_list.append(res = np.argmax(res))
+    return res_list
 
