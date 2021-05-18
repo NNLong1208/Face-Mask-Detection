@@ -1,7 +1,7 @@
 import time
 import cv2
 from pose_estimate import prepare, pose_process
-from modules.pre_process import pro_process_openvino
+from modules.pre_process import pre_process_openvino
 
 path = 'D:\pycharm\lightweight-human-pose-estimation.pytorch-master\checkpoint_iter_370000.pth'
 net = prepare(path)
@@ -11,7 +11,7 @@ while True:
     _, img = camera.read()
     statr_time = time.time()
 
-    point = pro_process_openvino(img)
+    point = pre_process_openvino(img)
 
 
     print(1/(time.time() - statr_time))

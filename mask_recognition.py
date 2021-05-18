@@ -1,5 +1,5 @@
 from openvino.inference_engine import IECore
-from modules.pre_process import pro_process_openvino
+from modules.pre_process import pre_process_openvino
 import numpy as np
 
 def prepare(path, device = 'GPU'):
@@ -14,7 +14,7 @@ def prepare(path, device = 'GPU'):
     return exec_net, input_layer, output_layer
 
 def mask_process(img, exec_net, input_layer, output_layer):
-    x = pro_process_openvino(img)
+    x = pre_process_openvino(img)
     res = exec_net.infer(inputs={input_layer: x})
     res = res[output_layer][0].tolist()
     res = np.argmax(res)
