@@ -4,7 +4,7 @@ import cv2
 from utils.torch_utils import select_device
 
 weights = r'./models/yolov5.pt'
-device = select_device('cpu')
+device = select_device('0')
 half = device.type != 'cpu'  # half precision only supported on CUDA - TRUE
 model = yolo_prepare(weights, device)
 if half:
