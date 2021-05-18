@@ -11,7 +11,7 @@ def pre_process_yolo(img):
     img_ = img_.unsqueeze(0)
     return img_
 
-def pro_process_openvino(x):
+def pre_process_openvino(x):
     x = cv2.resize(x, (120, 120))
     x = torch.from_numpy(x).cuda()
     x = x.to(dtype=torch.float)
