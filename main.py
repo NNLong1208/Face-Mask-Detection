@@ -1,10 +1,11 @@
-from pose_estimate import prepare, pose_process
+from pose_estimate import prepare_pose, pose_process
 from mask_recognition import mask_prepare, mask_process
 import time
 from mask_detection import *
 import cv2
 from utils.torch_utils import select_device
 from modules.modules import *
+
 path_pose = '.\models\pose_estimate.pth'
 path_open = '.\models'
 net_pose = prepare(path_pose)
