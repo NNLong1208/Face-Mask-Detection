@@ -16,9 +16,13 @@ def mask_prepare(path, device = 'GPU'):
 def mask_process(img, exec_net, input_layer, output_layer):
     res_list = []
     for x in img:
-        x = pre_process_openvino(x)
-        res = exec_net.infer(inputs={input_layer: x})
-        res = res[output_layer][0].tolist()
-        res_list.append(np.argmax(res))
+        try:
+            x = pre_process_openvino(x)
+            res = exec_net.infer(inputs={input_layer: x})
+            res = res[output_layer][0].tolist()
+            res_list.append(np.argmax(res))
+        except:
+            print("Fail preprocess")
+            res_list.append(np.argmax(0))
     return res_list
 
