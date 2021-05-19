@@ -66,4 +66,4 @@ def pose_process(img, net, stride = 8, upsample_ratio = 4, num_keypoints = 18):
     point = []
     for pose in current_poses:
         point.append(pose.get_poin())
-    return current_poses, point
+    return point
