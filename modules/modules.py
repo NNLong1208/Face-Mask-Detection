@@ -36,7 +36,7 @@ def get_distance(a, b):
     a = np.array([[5000,5000] if x[0] == -1 else x for x in a])
     return np.sum((a - b) ** 2, axis=1) ** (1 / 2)
 
-def check_distance(boxes_face, masks, hands, thred = 2.6):
+def check_distance(boxes_face, masks, hands, thred = 3):
     res_list = []
     for boxe_face, mask, hand in zip(boxes_face, masks, hands):
         center = np.array([int((int(mask[0]) + int(mask[2])) / 2), int((int(mask[1]) + int(mask[3])) / 2)])
