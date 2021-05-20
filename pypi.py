@@ -4,8 +4,7 @@ from mask_detection import *
 import cv2
 from utils.torch_utils import select_device
 from modules.modules import *
-import time
-
+from modules import download
 class MaskDetection:
     def __init__(self,):
         self.__net_open = None
@@ -29,7 +28,7 @@ class MaskDetection:
         try:
             self.load_model(path_yolo, path_pose, path_open)
         except:
-            down()
+            download()
             self.load_model(path_yolo, path_pose, path_open)
 
     def detection(self, img, thred = 3):
