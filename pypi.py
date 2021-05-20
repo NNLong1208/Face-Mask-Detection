@@ -5,6 +5,7 @@ import cv2
 from utils.torch_utils import select_device
 from modules.modules import *
 import time
+
 class MaskDetection:
     def __init__(self,):
         self.__net_open = None
@@ -15,17 +16,21 @@ class MaskDetection:
         self.__device = None
         self.output = None
 
-    def prepare(self, path_yolo = r'.\models\yolov5.pt', path_pose = '.\models\pose_estimate.pth', path_open = '.\models'):
+    def load_model(self, path_yolo, path_pose, path_open):
+        print("Loading Model")
+        self.__net_open, self.__input_layer, self.__output_layer = mask_prepare(path_open, device='GPU')
+        self.__device = select_device('0')
+        self.__net_yolo = yolo_prepare(path_yolo, self.__device)
+        self.__net_yolo.half()
+        self.__net_pose = prepare_pose(path_pose)
+        print('Load Model Success')
+
+    def prepare(self, path_yolo=r'./models/yolov5.pt', path_pose='./models/pose_estimate.pth', path_open=r'./models'):
         try:
-            print("Loading Model")
-            self.__net_open, self.__input_layer, self.__output_layer = mask_prepare(path_open, device='GPU')
-            self.__device = select_device('0')
-            self.__net_yolo = yolo_prepare(path_yolo, self.__device)
-            self.__net_yolo.half()
-            self.__net_pose = prepare_pose(path_pose)
-            print('Load Model Success')
+            self.load_model(path_yolo, path_pose, path_open)
         except:
-            print('Load Model Fail')
+            down()
+            self.load_model(path_yolo, path_pose, path_open)
 
     def detection(self, img, thred = 3):
         assert(img.shape == (480, 640, 3)),"Use cv2.resize(img, (640, 480) befor predict"
