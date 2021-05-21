@@ -28,7 +28,7 @@ class MaskDetection:
         try:
             self.load_model(path_yolo, path_pose, path_open)
         except:
-            download()
+            download.dowload()
             self.load_model(path_yolo, path_pose, path_open)
 
     def detection(self, img, thred = 3):
