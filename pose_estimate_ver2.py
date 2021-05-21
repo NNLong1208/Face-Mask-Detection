@@ -14,6 +14,7 @@ def pose_process(img, model):
     results = model.process(image)
     point = []
     box_face = [-1, -1, -1, -1]
+    boxes_face = []
     face = []
     try:
         for id, lm in enumerate(results.pose_landmarks.landmark):
@@ -40,12 +41,24 @@ def pose_process(img, model):
         box_face[2] += w//7
         box_face[1] -= h//2
         box_face[3] += int(h/1.2)
-        img_crop = img[box_face[0]:box_face[2], box_face[1]:box_face[3]].copy()
+        boxes_face = [[box_face[0], box_face[1]], [box_face[2], box_face[3]]]
+        img_crop = img[box_face[1]:box_face[3], box_face[0]:box_face[2]].copy()
         face.append(img_crop)
     except:
         pass
     if len(point) == 0:
         point.append([5000,5000])
-    point = np.array(point).reshape(-1,2)
-    box_face = [box_face]
-    return box_face, point, face
+        point.append([5000, 5000])
+    point = np.array([point])
+    boxes_face= [boxes_face]
+    return face, boxes_face, point
+
+if __name__ == '__main__':
+    camera = cv2.VideoCapture(0)
+    model = pose_prepare()
+    while True:
+        _, img = camera.read()
+        faces, boxes_face, hand = pose_process(img, model)
+
+        cv2.imshow('', faces[0])
+        cv2.waitKey(1)
