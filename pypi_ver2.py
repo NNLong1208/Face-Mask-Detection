@@ -55,14 +55,15 @@ class MaskDetection_1p:
         if self.output != None:
             for ele in self.output:
                 box = ele['box']
-                if ele['label'] == 'Mask':
-                    cv2.rectangle(img, box[0], box[1], (0, 255, 0), 2)
-                    cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
-                    cv2.putText(img, str(ele['label']), (box[0][0], box[1][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
-                else:
-                    cv2.rectangle(img, box[0], box[1], (0, 0, 255), 2)
-                    cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
-                    cv2.putText(img, str(ele['label']), (box[0][0], box[1][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                if 2.4*(box[1][0] - box[0][0]) > (box[1][1] - box[0][1]):
+                    if ele['label'] == 'Mask':
+                        cv2.rectangle(img, box[0], box[1], (0, 255, 0), 2)
+                        cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
+                        cv2.putText(img, str(ele['label']), (box[0][0], box[1][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
+                    else:
+                        cv2.rectangle(img, box[0], box[1], (0, 0, 255), 2)
+                        cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                        cv2.putText(img, str(ele['label']), (box[0][0], box[1][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
         return img
 
 mask_detection = MaskDetection_1p()
