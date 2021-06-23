@@ -20,7 +20,7 @@ def pre_process_openvino(x):
     x = x.cpu().numpy()
     return x
 
-def re_process_face_detect(img):
+def pre_process_face_detect(img):
     img = cv2.resize(img, (300, 300))
     img = np.transpose(img, (2, 0, 1))
     img = img.reshape(1, 3, 300, 300)
