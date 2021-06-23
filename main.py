@@ -15,6 +15,7 @@ if __name__ == '__main__':
         pre = MaskDetection.detection(img, thred=3)
         img = MaskDetection.draw(img)
         cv2.imshow('', img)
-        cv2.waitKey(1)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
     camera.release()
     cv2.destroyAllWindows()
