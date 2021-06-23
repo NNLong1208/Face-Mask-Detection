@@ -1,6 +1,6 @@
 import torch
 import cv2
-
+import numpy as np
 def pre_process_yolo(img, device, half):
     img_ = img[..., ::-1].copy()
     img_ = torch.from_numpy(img_).to(device)
@@ -19,3 +19,15 @@ def pre_process_openvino(x):
     x = x.unsqueeze(0)
     x = x.cpu().numpy()
     return x
+
+def re_process_face_detect(img):
+    img = cv2.resize(img, (300, 300))
+    img = np.transpose(img, (2, 0, 1))
+    img = img.reshape(1, 3, 300, 300)
+    return img
+
+def pre_process_landmarks(img):
+    img = cv2.resize(img,(48,48))
+    img = np.transpose(img, (2, 0, 1))
+    img = img.reshape(1, 3, 48, 48)
+    return img
