@@ -52,3 +52,21 @@ def get_results(open, check_distance, mask):
     mask_res = [1 if x[0] != 1 else 0 for x in mask]
     res = [1 if x*2+y+z == 4 else 0 for x, y, z in zip(open, check_distance, mask_res)]
     return res
+
+def get_iou(bb1, bb2):
+
+    x_left = max(bb1[0][0], bb2[0][0])
+    y_top = max(bb1[0][1], bb2[0][0])
+    x_right = min(bb1[1][0], bb2[1][0])
+    y_bottom = min(bb1[1][1], bb2[1][1])
+
+    if x_right < x_left or y_bottom < y_top:
+        return 0.0
+
+    intersection_area = (x_right - x_left) * (y_bottom - y_top)
+
+    bb1_area = (bb1[1][0] - bb1[0][0]) * (bb1[1][1] - bb1[0][1])
+    bb2_area = (bb2[1][0] - bb2[0][0]) * (bb2[1][1] - bb2[0][1])
+
+    iou = intersection_area / float(bb1_area + bb2_area - intersection_area)
+    return iou
