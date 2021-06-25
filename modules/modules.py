@@ -70,3 +70,13 @@ def get_iou(bb1, bb2):
 
     iou = intersection_area / float(bb1_area + bb2_area - intersection_area)
     return iou
+
+def combine_box(box_pose, box_detect):
+    box = []
+    for ele_pose in box_pose:
+        IoU = []
+        for ele_detect in box_detect:
+            IoU.append(get_iou(ele_pose, ele_detect))
+        if len(IoU) != 0:
+            box.append(box_detect[IoU.index(max(IoU))])
+    return box
