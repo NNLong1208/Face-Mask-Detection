@@ -56,10 +56,9 @@ def get_results(open, check_distance, mask):
 def get_iou(bb1, bb2):
 
     x_left = max(bb1[0][0], bb2[0][0])
-    y_top = max(bb1[0][1], bb2[0][0])
+    y_top = max(bb1[0][1], bb2[0][1])
     x_right = min(bb1[1][0], bb2[1][0])
     y_bottom = min(bb1[1][1], bb2[1][1])
-
     if x_right < x_left or y_bottom < y_top:
         return 0.0
 
@@ -71,12 +70,18 @@ def get_iou(bb1, bb2):
     iou = intersection_area / float(bb1_area + bb2_area - intersection_area)
     return iou
 
-def combine_box(box_pose, box_detect):
-    box = []
-    for ele_pose in box_pose:
+def combine_box(box_pose, box_detect, hands):
+    hand= []
+    for ele_pose in box_detect:
         IoU = []
-        for ele_detect in box_detect:
+        for ele_detect in box_pose:
             IoU.append(get_iou(ele_pose, ele_detect))
-        if len(IoU) != 0:
-            box.append(box_detect[IoU.index(max(IoU))])
-    return box
+        if sum(IoU) == 0:
+            hand.append([[-1, -1],[-1,-1]])
+        else:
+            hand.append(hands[IoU.index(max(IoU))])
+    return np.array(hand)
+
+def get_face_open(img, landmarks):
+    faces = []
+    return faces
