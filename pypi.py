@@ -1,12 +1,9 @@
-import time
 from pose_estimate import prepare_pose, pose_process
 from mask_recognition import mask_prepare, mask_process
 from mask_detection import *
-import cv2
 from utils.torch_utils import select_device
 from modules.modules import *
 from face_detection import *
-import time
 from modules import download
 class MaskDetection:
     def __init__(self,):
@@ -19,38 +16,35 @@ class MaskDetection:
         self.__para_net_face = None
         self.output = None
 
-    def load_model(self, path_yolo, path_pose, path_open):
+    def load_model(self, path_yolo, path_pose, path_open, path_face):
         print("Loading Model")
         self.__net_open, self.__input_layer, self.__output_layer = mask_prepare(path_open, device='GPU')
         self.__device = select_device('0')
         self.__net_yolo = yolo_prepare(path_yolo, self.__device)
         self.__net_yolo.half()
         self.__net_pose = prepare_pose(path_pose)
-        self.__para_net_face = face_detection_prepare()
+        self.__para_net_face = face_detection_prepare(path_face)
         print('Load Model Success')
 
-    def prepare(self, path_yolo=r'./models/yolov5.pt', path_pose='./models/pose_estimate.pth', path_open=r'./models'):
+    def prepare(self, path_yolo=r'./models/yolov5.pt', path_pose='./models/pose_estimate.pth', path_open=r'./models', path_face = './models/{}'):
         try:
-            self.load_model(path_yolo, path_pose, path_open)
+            self.load_model(path_yolo, path_pose, path_open, path_face)
         except:
             download.dowload()
-            self.load_model(path_yolo, path_pose, path_open)
+            self.load_model(path_yolo, path_pose, path_open, path_face)
 
-    def detection(self, img, thred = 3):
+    def detection(self, img, thred_yolo = 0.1 ,thred_dis = 3):
         assert(img.shape == (480, 640, 3)),"Use cv2.resize(img, (640, 480) befor predict"
-
-        time_start = time.time()
-        point = pose_process(img, self.__net_pose)
-        box, landmarks = face_detection_process(img, self.__para_net_face)
-        faces, boxes_face, hand = get_face_box(img, point)
-        boxes_face = combine_box(boxes_face, box)
-        yolo_pre = yolo_process(img, self.__net_yolo, self.__device, True)[0]
-        yolo_pre = sort_mask(yolo_pre, boxes_face)
-        res = mask_process(faces, self.__net_open, self.__input_layer, self.__output_layer)
-        check_dis = check_distance(boxes_face, yolo_pre, hand, thred)
-        results = get_results(res, check_dis, yolo_pre)
         mask_detection_results = []
-        print(1/(time.time()-time_start))
+        boxes_face, landmarks = face_detection_process(img, self.__para_net_face, prob_threshold_face=0.5)
+        point = pose_process(img, self.__net_pose)
+        faces, box, hand = get_face_box(img, point)
+        hand = combine_box(boxes_face, box, hand)
+        yolo_pre = yolo_process(img, self.__net_yolo, self.__device, True, thred=thred_yolo)[0]
+        yolo_pre = sort_mask(yolo_pre, boxes_face)
+        res = mask_process(img, landmarks, self.__net_open, self.__input_layer, self.__output_layer)
+        check_dis = check_distance(boxes_face, yolo_pre, hand, thred_dis)
+        results = get_results(res, check_dis, yolo_pre)
         for box_face, yolo, result in zip(boxes_face, yolo_pre, results):
             if result == 1:
                 mask_detection_results.append({'box': [[int(yolo[0]), int(yolo[1])], [int(yolo[2]), int(yolo[3])]], 'acc': round(float(yolo[4]), 2), 'label': 'Mask'})
