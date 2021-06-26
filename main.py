@@ -1,6 +1,7 @@
 from pypi import MaskDetection
 import cv2
 import argparse
+import time
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -12,8 +13,11 @@ if __name__ == '__main__':
     while True:
         _, img = camera.read()
         img = cv2.resize(img, (640, 480))
-        pre = MaskDetection.detection(img, thred=3)
-        img = MaskDetection.draw(img)
+        try:
+            pre = MaskDetection.detection(img)
+            img = MaskDetection.draw(img)
+        except:
+            pass
         cv2.imshow('', img)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
