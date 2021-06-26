@@ -3,8 +3,6 @@ from openvino.inference_engine import IECore
 from modules.pre_process import pre_process_face_detect, pre_process_landmarks
 import numpy as np
 import time
-#from Align import get_reference_facial_points, warp_and_crop_face
-#reference = get_reference_facial_points(default_square=True)
 
 def face_detection_prepare(path = './models/{}'):
     ie = IECore()
