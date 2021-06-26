@@ -1,6 +1,8 @@
 import torch
 import cv2
 import numpy as np
+from .Align import *
+reference = get_reference_facial_points(default_square=True)
 def pre_process_yolo(img, device, half):
     img_ = img[..., ::-1].copy()
     img_ = torch.from_numpy(img_).to(device)
@@ -10,7 +12,8 @@ def pre_process_yolo(img, device, half):
     img_ = img_.unsqueeze(0)
     return img_
 
-def pre_process_openvino(x):
+def pre_process_openvino(x, landmark):
+    x = warp_and_crop_face(x, landmark, reference, (112, 112))
     x = cv2.resize(x, (120, 120))
     x = torch.from_numpy(x).cuda()
     x = x.to(dtype=torch.float)
