@@ -81,7 +81,3 @@ def combine_box(box_pose, box_detect, hands):
         else:
             hand.append(hands[IoU.index(max(IoU))])
     return np.array(hand)
-
-def get_face_open(img, landmarks):
-    faces = []
-    return faces
