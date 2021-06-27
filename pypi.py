@@ -24,6 +24,7 @@ class MaskDetection:
         self.__net_yolo.half()
         self.__net_pose = prepare_pose(path_pose)
         self.__para_net_face = face_detection_prepare(path_face)
+        self.detection(np.random.randint(255, size=(480, 640, 3),dtype=np.uint8),test = 1) #test model
         print('Load Model Success')
 
     def prepare(self, path_yolo=r'./models/yolov5.pt', path_pose='./models/pose_estimate.pth', path_open=r'./models', path_face = './models/{}'):
@@ -33,16 +34,21 @@ class MaskDetection:
             download.dowload()
             self.load_model(path_yolo, path_pose, path_open, path_face)
 
-    def detection(self, img, thred_yolo = 0.1 ,thred_dis = 3):
+    def detection(self, img, thred_yolo = 0.47 ,thred_dis = 3, test = 0):
         assert(img.shape == (480, 640, 3)),"Use cv2.resize(img, (640, 480) befor predict"
+
         mask_detection_results = []
         boxes_face, landmarks = face_detection_process(img, self.__para_net_face, prob_threshold_face=0.5)
+        if len(boxes_face) == 0 and test == 1:
+            return mask_detection_results
+        res = mask_process(img, landmarks, self.__net_open, self.__input_layer, self.__output_layer)
+        if sum(res) == 0 and test == 1:
+            return mask_detection_results
         point = pose_process(img, self.__net_pose)
         faces, box, hand = get_face_box(img, point)
         hand = combine_box(boxes_face, box, hand)
         yolo_pre = yolo_process(img, self.__net_yolo, self.__device, True, thred=thred_yolo)[0]
         yolo_pre = sort_mask(yolo_pre, boxes_face)
-        res = mask_process(img, landmarks, self.__net_open, self.__input_layer, self.__output_layer)
         check_dis = check_distance(boxes_face, yolo_pre, hand, thred_dis)
         results = get_results(res, check_dis, yolo_pre)
         for box_face, yolo, result in zip(boxes_face, yolo_pre, results):
