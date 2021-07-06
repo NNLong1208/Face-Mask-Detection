@@ -31,7 +31,22 @@ def sort_mask(pre, boxes_face):
             if box_face[0][1] < center[1] < box_face[1][1] and box_face[0][0] < center[0] < box_face[1][0]:
                 mask[id] = ele
     return mask
-
+'''
+def sort_mask(pre, boxes_face):
+    mask = [[-1, -1, -1, -1, -1, -1] for x in range(len(boxes_face))]
+    for ele in pre:
+        IoU= []
+        box_ele = [[ele[0], ele[1]], [ele[2], ele[3]]]
+        for box in boxes_face:
+            IoU.append(get_iou(box_ele, box))
+        if len(IoU)!= 0:
+            max_IoU = max(IoU)
+            id = IoU.index(max_IoU)
+            print('IoU ',IoU)
+            if max_IoU != 0 and max_IoU >0.15:
+                mask[id] = ele
+    return mask
+'''
 def get_distance(a, b):
     a = np.array([[5000,5000] if x[0] == -1 else x for x in a])
     return np.sum((a - b) ** 2, axis=1) ** (1 / 2)
