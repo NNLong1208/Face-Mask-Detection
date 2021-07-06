@@ -20,11 +20,14 @@ def mask_process(img, landmarks, exec_net, input_layer, output_layer):
             x = pre_process_openvino(img, x)
             res = exec_net.infer(inputs={input_layer: x})
             res = res[output_layer][0].tolist()
+            res_list.append(np.argmax(res))
+            '''
             max_res = np.max(res)
-            if np.argmax(res) == 0 and max_res >0.7:
+            if np.argmax(res) == 0 :#and max_res >0.8:
                 res_list.append(np.argmax(res))
             else:
                 res_list.append(1)
+            '''
         except:
             print("Fail preprocess")
             res_list.append(np.argmax(0))
