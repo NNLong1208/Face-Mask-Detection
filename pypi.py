@@ -34,11 +34,11 @@ class MaskDetection:
             download.dowload()
             self.load_model(path_yolo, path_pose, path_open, path_face)
 
-    def detection(self, img, thred_yolo = 0.47 ,thred_dis = 3, test = 0):
+    def detection(self, img, thred_yolo = 0.47 ,thred_dis = 3,thred_face= 0.5, test = 0):
         assert(img.shape == (480, 640, 3)),"Use cv2.resize(img, (640, 480) befor predict"
 
         mask_detection_results = []
-        boxes_face, landmarks = face_detection_process(img, self.__para_net_face, prob_threshold_face=0.5)
+        boxes_face, landmarks = face_detection_process(img, self.__para_net_face, prob_threshold_face=thred_face)
         if len(boxes_face) == 0 and test == 1:
             return mask_detection_results
         res = mask_process(img, landmarks, self.__net_open, self.__input_layer, self.__output_layer)
@@ -46,10 +46,17 @@ class MaskDetection:
             return mask_detection_results
         point = pose_process(img, self.__net_pose)
         faces, box, hand = get_face_box(img, point)
-        hand = combine_box(boxes_face, box, hand)
+        hand = combine_box(box, boxes_face,hand)
         yolo_pre = yolo_process(img, self.__net_yolo, self.__device, True, thred=thred_yolo)[0]
+        print('Face', boxes_face)
+        print('Open', res)
+        print('Mask', yolo_pre)
         yolo_pre = sort_mask(yolo_pre, boxes_face)
         check_dis = check_distance(boxes_face, yolo_pre, hand, thred_dis)
+
+        print('Sort', yolo_pre)
+        print('Dis ', check_dis)
+        print('-------------------------------------------------------')
         results = get_results(res, check_dis, yolo_pre)
         for box_face, yolo, result in zip(boxes_face, yolo_pre, results):
             if result == 1:
@@ -63,14 +70,14 @@ class MaskDetection:
         if self.output != None:
             for ele in self.output:
                 box = ele['box']
-                if 2.4*(box[1][0] - box[0][0]) > (box[1][1] - box[0][1]):
-                    if ele['label'] == 'Mask':
-                        cv2.rectangle(img, box[0], box[1], (0, 255, 0), 2)
-                        cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
-                        cv2.putText(img, str(ele['label']), (box[0][0], box[1][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
-                    else:
-                        cv2.rectangle(img, box[0], box[1], (0, 0, 255), 2)
-                        cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
-                        cv2.putText(img, str(ele['label']), (box[0][0], box[1][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                #if 2.4*(box[1][0] - box[0][0]) > (box[1][1] - box[0][1]):
+                if ele['label'] == 'Mask':
+                    cv2.rectangle(img, box[0], box[1], (0, 255, 0), 2)
+                    cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
+                    cv2.putText(img, str(ele['label']), (box[0][0], box[1][1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,0), 1)
+                else:
+                    cv2.rectangle(img, box[0], box[1], (0, 0, 255), 2)
+                    cv2.putText(img, str(ele['acc']), (box[0][0], box[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                    cv2.putText(img, str(ele['label']), (box[0][0], box[1][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
         return img
 
