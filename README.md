@@ -11,7 +11,7 @@
 4. [Results](#Results)
 5. [Contact](#Contact)
 <p align="center">
-  <h1 align="center", id="introduction">NEU-Mask</h1>
+  <h1 align="center", id="introduction">NEU-MASK</h1>
 </p>
 
 - In this project, we investigated and proposed a novel approach to detecting masks. We chose [`MobileNet`](#Mobilenet) after examining a variety of options. Other models, such as [`YOLOv5`](#YOLOV5), [`Face Detection`](#Face_Detection) and [`Pose Estimation`](#Face_Detection), have also been merged. NEU-MASK is created by combining four models.
