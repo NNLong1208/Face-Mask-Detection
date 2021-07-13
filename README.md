@@ -14,14 +14,14 @@
   <h1 align="center", id="introduction">NEU-Mask</h1>
 </p>
 
-- We researched and created a technique to detect mask wear in this project. We chose [`Mobilenet`](#Mobilenet) after examining a variety of options. Other models, such as [`YOLOv5`](#YOLOV5), [`Face Detection`](#Face_Detection) and [`Pose Estimation`](#Face_Detection), have also been merged. NEU-MASK is created by combining four models.
+- In this project, we investigated and proposed a novel approach to detecting masks. We chose [`MobileNet`](#Mobilenet) after examining a variety of options. Other models, such as [`YOLOv5`](#YOLOV5), [`Face Detection`](#Face_Detection) and [`Pose Estimation`](#Face_Detection), have also been merged. NEU-MASK is created by combining four models.
 
 - Our project is capable of operating in real time. The processing rate is up to 12 FPS. We also provide a 16,000-image [`dataset`](#dataset) separated into two classes: masks and no masks.
 
 ## Details <a name="Details"></a>
 
 ### Dataset <a name="Dataset"></a>
-- The dataset used to train the model is a compilation of images from various sources. The majority of the data set is gathered on major social networking sites such as Facebook and Twitter and significant search engines like Google, Bing, Baidu, and so on. Furthermore, a huge number of pictures from garment factory No.10 (Hanoi, Vietnam) featuring images of workers wearing masks shot from various perspectives have been collected. In addition, in order to improve the variety and accuracy of the prediction model, the dataset gathers photos from different countries, ages, genders, and shooting angles. To reduce the possibility of bias, we looked for and collected additional images of persons who were not wearing masks but were covering their lips with their hands or had a beard to include in the collection of images without masks. You can download dataset at [here](https://drive.google.com/file/d/1-pWX25WnebaSvqCNuVc4zvR5mY6fsUES/view?usp=sharing)
+- The dataset used to train the model is a compilation of images from various sources. The majority of the data set is gathered on major social networking sites such as Facebook and Twitter and significant search engines like Google, Bing, Baidu, and so on. Furthermore, a huge number of pictures from garment factory No.10 (Hanoi, Vietnam) featuring images of workers wearing masks shot from various perspectives have been collected. In addition, in order to improve the variety and accuracy of the prediction model, the dataset gathers photos from different countries, ages, genders, and shooting angles. To reduce the possibility of bias, we looked for and collected additional images of persons who were not wearing masks but were covering their lips with their hands or had a beard to include in the collection of images without masks. The dataset is available for download [here](https://drive.google.com/file/d/1-pWX25WnebaSvqCNuVc4zvR5mY6fsUES/view?usp=sharing)
 
 ### Proposed model  <a name="Proposed_model"></a>
 - To build NEU-Mask we use 4 models which are [`Mobilenet`](#Mobilenet), [`YOLOv5`](#YOLOV5), [`Face Detection`](#Face_Detection) and [`Pose Estimation`](#Pose_Estimation). NEU-Mask is divided into 2 stage . The first stage is combined by [`Face Detection`](#Face_Detection) and [`Mobilenet`](#Mobilenet). Stage 2 is combined by [`Yolov5`](#YOLOv5) and [`Pose Estimation`](#Pose_Estimation).  The wearing of a fake mask will be scrutinized in step 2 after passing phase 1. Download all model at [here](https://drive.google.com/file/d/10Jm4ztCeV9dqVMVGzLP9B3iOyUb2EKLJ/view?usp=sharing)
@@ -41,8 +41,8 @@
 - After considering the processing speed and accuracy of the model, we have chosen Mobilenet because of its accuracy and suitable processing speed. Next we converted from keras to Openvino to increase the processing speed from `8.2 FPS` to `32 FPS `
 
 ### YOLOV5 <a name="YOLOV5"></a>
-- YOLOv5 is a collection of object detection architectures and models pre-trained on the COCO dataset. It includes: YOLOv5s, YOLOv5m, yolov5l, YOLOv5x, ... We use yolov5m for the purpose of detecting the location of the masks in the image. More information about the model you can see [here](https://github.com/ultralytics/yolov5) 
-- We train yolov5 with class with mask of the dataset. After that, yOLOv5 has a `mAP` of `0.81` when training on this dataset. 
+- YOLOv5 is a collection of object detection architectures and models pre-trained on the COCO dataset. It includes: YOLOv5s, YOLOv5m, YOLOv5l, YOLOv5x, ... We use YOLOv5m for the purpose of detecting the location of the masks in the image. More information about the model you can see [here](https://github.com/ultralytics/yolov5) 
+- We train yolov5 with class with mask of the dataset. After that, YOLOv5 has a `mAP` of `0.81` when training on this dataset. 
 
 ### Face Detection <a name="Face_Detection"></a>
 - We use this model built and optimized by Intel. Face detector based on SqueezeNet light (half-channels) as a backbone with a single SSD for indoor/outdoor scenes shot by a front-facing camera. The backbone consists of fire modules to reduce the number of computations. The single SSD head from 1/16 scale feature map has nine clustered prior boxes. More information about the model you can see [here](https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/face-detection-retail-0004)  
