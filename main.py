@@ -12,17 +12,28 @@ if __name__ == '__main__':
     opt = parser.parse_args()
     MaskDetection = MaskDetection()
     MaskDetection.prepare()
-    camera = cv2.VideoCapture(opt.camera)
-    while True:
-        _, img = camera.read()
-        img = cv2.resize(img, (640, 480))
+    if opt.camera == 0 or opt.camera == 1:
+        camera = cv2.VideoCapture(opt.camera)
+        while True:
+            _, img = camera.read()
+            try:
+                img = cv2.resize(img, (640, 480))
+                pre = MaskDetection.detection(img, opt.thred_yolo, opt.thred_dis, opt.thred_face)
+                img = MaskDetection.draw(img)
+            except:
+                pass
+            cv2.imshow('', img)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        camera.release()
+        cv2.destroyAllWindows()
+    else:
+        img = cv2.imread(opt.camera)
         try:
+            img = cv2.resize(img, (640, 480))
             pre = MaskDetection.detection(img, opt.thred_yolo, opt.thred_dis, opt.thred_face)
             img = MaskDetection.draw(img)
         except:
             pass
         cv2.imshow('', img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    camera.release()
-    cv2.destroyAllWindows()
+        cv2.waitKey(0)
