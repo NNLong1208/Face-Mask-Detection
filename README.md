@@ -68,4 +68,4 @@ or pypi : update later
 ![](https://github.com/NNLong1208/Face-Mask-Detection/blob/master/Img/res.gif)
 ## Contact <a name="Contact"></a>
 - Supervisor: [Tuan Nguyen](https://www.facebook.com/nttuan8)
-- Team Members: [Long Nguyen](https://www.facebook.com/profile.php?id=100008475522373), [Tung Nguyen](https://www.facebook.com/gnutn0s), [Thao Nguyen](), [Trang Tran](https://www.facebook.com/concanoc1), [Phuong Duong]() 
+- Team Members: [Long Nguyen](https://www.facebook.com/profile.php?id=100008475522373), [Tung Nguyen](https://www.facebook.com/gnutn0s), [Thao Nguyen](), [Trang Tran](https://www.facebook.com/cieltrantrang), [Phuong Duong]() 
